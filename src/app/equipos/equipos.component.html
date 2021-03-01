@@ -1,0 +1,53 @@
+<div>
+	<h1>Equipos</h1>
+	<br>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Nombre</th>
+			<th>Partidos Jugados</th>
+			<th>Victorias</th>
+			<th>Derrotas</th>
+		</tr>
+		<tr *ngFor="let equipo of equipos">
+			<td><a routerLink="/equipo/{{equipo.idEquipo}}">{{equipo.idEquipo}}</a></td>
+			<td>{{equipo.nombre}}</td>
+			<td>{{equipo.partidosJugados}}</td>
+			<td>{{equipo.victorias}}</td>
+			<td>{{equipo.derrotas}}</td>
+		</tr>
+	</table>
+</div>
+<br>
+<div>
+	<h1>Añadir un equipo nuevo</h1>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th><input #id  /></th>
+		</tr>
+		<tr>
+			<th>Nombre</th>
+			<th><input #nombre  /></th>
+		</tr>
+		<tr>
+			<th>Partidos Jugados</th>
+			<th><input #partidos/></th>
+		</tr>
+		<tr>
+			<th>Victorias</th>
+			<th><input #victorias/></th>
+		</tr>
+		<tr>
+			<th>Derrotas</th>
+			<th><input #derrotas /></th>
+		</tr>
+		<tr>
+			<th colspan="2">
+				<button
+          (click)="add(id.value, nombre.value, partidos.value, victorias.value, derrotas.value)">
+          Añadir
+        </button>
+		</tr>
+	</table>
+</div>

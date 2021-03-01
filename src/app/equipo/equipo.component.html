@@ -1,0 +1,119 @@
+<div *ngIf="equipo != undefined">
+	<h1>{{equipo.nombre}}</h1>
+
+	<table>
+		<tr>
+			<th>Partidos Jugados</th>
+			<th><input #partidosJugados placeholder="{{equipo.partidosJugados}}" /></th>
+		</tr>
+		<tr>
+			<th>Victorias</th>
+			<th><input #victorias placeholder="{{ equipo.victorias }}" /></th>
+		</tr>
+		<tr>
+			<th>Derrotas</th>
+			<th><input #derrotas placeholder="{{equipo.derrotas}}" /></th>
+		</tr>
+		<tr>
+			<th><button (click)="goBack()">Volver</button></th>
+			<th>
+				<button (click)="save(partidosJugados.value, victorias.value, derrotas.value)">
+          Guardar
+        </button>
+			</th>
+		</tr>
+	</table>
+	<br />
+	<h2>Jugadores que pertenecen al equipo</h2>
+	<table class="table1">
+		<th>ID Jugador</th>
+		<th>Nombre</th>
+		<th>Fecha de nacimiento</th>
+		<th>Nombre equipo</th>
+		<th>Numero de partidos Jugados</th>
+		<th>Triples</th>
+		<th>Asistencias</th>
+		<th>Puntos</th>
+		<th>Pases</th>
+		<th>Expulsiones</th>
+		<th>Eliminar</th>
+		<tr *ngFor="let a of equipo.jugadores">
+			<td>{{a.idJugador}}</td>
+			<td>
+				<a routerLink="/jugador/{{a.idJugador}}&{{a.nEquipo}}">{{a.nombre}}</a>
+			</td>
+			<td>{{a.fNacimiento | date:'dd-MM-yyyy'}}</td>
+			<td>{{a.nEquipo}}</td>
+			<td>{{a.nPartidos}}</td>
+			<td>{{a.triples}}</td>
+			<td>{{a.asistencias}}</td>
+			<td>{{a.puntos}}</td>
+			<td>{{a.pases}}</td>
+			<td>{{a.expulsiones}}</td>
+			<td>
+				<button class="delete" tittle="delete jugador" (click)="delete(a)">
+          X
+        </button>
+			</td>
+		</tr>
+	</table>
+	<br />
+	<h2>Añadir jugador al equipo</h2>
+	<table class="table1">
+		<tr>
+			<th>ID</th>
+			<th><input #id /></th>
+		</tr>
+		<tr>
+			<th>Nombre</th>
+			<th><input #nombre /></th>
+		</tr>
+		<tr>
+			<th>Fecha de Nacimiento</th>
+			<th><input #fecha /></th>
+		</tr>
+		<tr>
+			<th>Equipo</th>
+			<th><input #e /></th>
+		</tr>
+		<tr>
+			<th>Partidos jugados</th>
+			<th><input #partidos /></th>
+		</tr>
+		<tr>
+			<th>Triples</th>
+			<th><input #triples /></th>
+		</tr>
+		<tr>
+			<th>Asistencias</th>
+			<th><input #asistencias /></th>
+		</tr>
+		<tr>
+			<th>Rebotes</th>
+			<th><input #rebotes /></th>
+		</tr>
+		<tr>
+			<th>Puntos</th>
+			<th><input #puntos /></th>
+		</tr>
+		<tr>
+			<th>Pases</th>
+			<th><input #pases /></th>
+		</tr>
+		<tr>
+			<th>Expulsiones</th>
+			<th><input #expulsiones /></th>
+		</tr>
+		<th colspan="2">
+			<button
+        (click)="add(id.value, nombre.value, fecha.value, e.value, partidos.value, triples.value, asistencias.value, rebotes.value, puntos.value, pases.value, expulsiones.value)"
+      >
+        Añadir Jugador
+      </button>
+		</th>
+
+
+	</table>
+
+
+</div>

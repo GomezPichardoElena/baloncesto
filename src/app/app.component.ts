@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, VERSION } from "@angular/core";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "my-app",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  title = 'baloncesto';
+  name = "https://logodownload.org/wp-content/uploads/2019/05/jordan-logo.png";
+
 }
